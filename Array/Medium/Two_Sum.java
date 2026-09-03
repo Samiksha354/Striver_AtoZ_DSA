@@ -52,6 +52,7 @@ public class Two_Sum {
             else if(sum > target){right--;}
             else{
                 return new int[] {left,right};
+
             }
         }
         return new int[]{-1,-1};
