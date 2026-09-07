@@ -43,12 +43,28 @@ public class Kadanes_Algo_Max_Subarray_Sum {
     static int maxsubarray3(int[] arr){
         int  maxlen=Integer.MIN_VALUE;
         int sum=0;
+
+        // this to keep track of that array
+        int ansstart=-1;
+        int ansend=-1;
+
+
+        int start=0;
         for(int i=0;i<arr.length;i++){
+            if(sum ==0) start=i;
           sum=sum+arr[i];
           if(sum > maxlen){
               maxlen =sum;
+               ansstart=start;
+               ansend=i;
           }
           if(sum <0) sum =0;
+
+
+        }
+
+        for(int k=ansstart;k <=ansend; k++){
+            System.out.print("   "+arr[k]);
         }
         return maxlen;
     }
@@ -65,7 +81,7 @@ public class Kadanes_Algo_Max_Subarray_Sum {
         System.out.println("2Approach"+ans1);
 
         int ans2=maxsubarray3(arr);
-        System.out.println("3Approach"+ans2);
+        System.out.println("      "+"3Approach"+ans2);
 
     }
 }
